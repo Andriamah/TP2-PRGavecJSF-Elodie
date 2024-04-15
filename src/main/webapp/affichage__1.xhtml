@@ -13,14 +13,13 @@
             </ui:define>
 
             <ui:define name="content">
-                <h1>Application&gt;formulaire_1</h1>
+                <h1>Application&gt;affichage_1</h1>
+                Les nombres apres : #{bean.nombre} <br/>
+                <ui:repeat value="#{bean.nombresSuivants}" var="n" varStatus="status">
+                    #{n + 1}#{! status.last ? ', ' : ''}
+                </ui:repeat>
+                <h:link outcome="formulaire_1" value="Saisir un autre nombre"/>
 
-                <h:form>
-                    <h:outputLabel value="Entrez un nombre" for="nombre"/>
-                    <h:inputText id="nombre" value="#{bean.nombre}"/>
-                    <h:message for="nombre"/>
-                    <h:commandButton value="Valider" action="affichage__1"/>
-                </h:form>
             </ui:define>
 
         </ui:composition>
